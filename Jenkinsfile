@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("mandeepkaurdev/nodeapp")
+        app = sh(docker build -t mandeepkaurdev/nodeapp --build-arg GIT_COMMIT=$(git log -1 --format=%h)
     }
 
     stage('Test image') {
